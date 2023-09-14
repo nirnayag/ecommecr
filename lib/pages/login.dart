@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http; // Import the http package
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'gestpage.dart';
 import 'homepage.dart';
 
 
@@ -90,15 +91,33 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                login();
-              },
-              child: Text('Login'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.orange,
-                elevation: 4,
-              ),
+            Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    login();
+                  },
+                  child: Text('Login'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                    elevation: 4,
+                  ),
+                ),
+                ElevatedButton(
+                  
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => GestView()),
+            );
+          },
+          child: Text('Go to Guest Page'),
+           style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                    elevation: 4,
+                  ),
+        ),
+              ],
             ),
             SizedBox(height: 20),
             Text(
@@ -106,6 +125,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 16,
+                
               ),
             ),
           ],
